@@ -44,3 +44,29 @@ export const foundationSessions:readonly TrainingSessionDefinition[]=[
 ];
 
 export const foundationPack={techniques:foundationTechniques,drills:foundationDrills,sessions:foundationSessions};
+
+export const movementTechniques:readonly TechniqueDefinition[]=[
+ {id:'weight-distribution',version:1,title:'Distribuição de Peso V1',objective:'Permitir estabilidade e mudança de direção sem prender o praticante ao chão.',checkpoints:['centro de massa pequeno e controlado','pés estáveis','joelhos alinhados com os pés','tronco sem compensação','retorno à prontidão'],safety:['variações adaptáveis à anatomia e movimento']},
+ {id:'body-alignment',version:1,title:'Alinhamento Corporal V1',objective:'Criar postura marcial estável, móvel e sem tensão desnecessária.',checkpoints:['cabeça equilibrada','queixo protegido sem excesso','ombros relaxados','caixa torácica e pelve organizadas','quadril disponível','joelhos acompanham pés','pés estáveis'],safety:['alinhamento dinâmico','evitar rigidez e compensações observáveis']},
+ {id:'stance-switch-recovery',version:1,title:'Troca e Recuperação de Base V1',objective:'Trocar a base sem salto ou cruzamento descontrolado, terminando funcional.',checkpoints:['partir da guarda','apoios reorganizados sem unir os pés','base recuperada','guarda e equilíbrio confirmados'],safety:['velocidade só aumenta quando a recuperação deixa de exigir reorganização consciente']},
+ {id:'forward-step',version:1,title:'Avanço V1',objective:'Reduzir distância sem abandonar a estrutura marcial.',checkpoints:['pé da direção inicia','segundo pé restaura distância','guarda e visão preservadas','centro de massa controlado','terminar equilibrado'],safety:['passos curtos antes de longos','não cruzar os pés']},
+ {id:'backward-step',version:1,title:'Recuo V1',objective:'Aumentar distância mantendo visão, proteção e capacidade de responder.',checkpoints:['pé da direção inicia','segundo pé restaura base','tronco não foge do movimento','olhar à frente','guarda preservada'],safety:['passos compatíveis com o espaço disponível','não cruzar os pés']},
+ {id:'lateral-step',version:1,title:'Deslocamento Lateral V1',objective:'Mudar de linha sem perder a largura funcional da base.',checkpoints:['pé da direção inicia','outro acompanha','tronco orientado','guarda preservada','parada controlada'],safety:['não cruzar nem juntar completamente os apoios']},
+ {id:'diagonal-step',version:1,title:'Deslocamento Diagonal V1',objective:'Combinar mudança de distância e linha em um único deslocamento.',checkpoints:['direção diagonal definida','pé mais próximo inicia','base restaurada','guarda ativa','retorno equilibrado'],safety:['primeiro dominar geometria','não cruzar os pés']},
+];
+export const movementDrills:readonly DrillDefinition[]=[
+ {id:'weight-transfer',version:1,title:'Transferência de peso na guarda',techniqueIds:['weight-distribution'],mode:'TIMED',target:30,restSeconds:30,physical:true},
+ {id:'alignment-check',version:1,title:'Teste funcional de alinhamento',techniqueIds:['body-alignment'],mode:'TIMED',target:30,restSeconds:15,physical:true},
+ {id:'stance-switch',version:1,title:'Troca lenta de base',techniqueIds:['stance-switch-recovery'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'forward-step',version:1,title:'Avanço lento',techniqueIds:['forward-step'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'backward-step',version:1,title:'Recuo lento',techniqueIds:['backward-step'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'lateral-step',version:1,title:'Deslocamento lateral',techniqueIds:['lateral-step'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'diagonal-step',version:1,title:'Deslocamento diagonal',techniqueIds:['diagonal-step'],mode:'REPS',target:3,restSeconds:15,physical:true},
+];
+export const movementSessions:readonly TrainingSessionDefinition[]=[
+ {id:'weight-alignment-01',version:1,title:'Peso + Alinhamento V1',rounds:2,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Organizar para mover',text:'Mantenha estabilidade e capacidade de mudança sem prender o corpo ao chão.'},{type:'DRILL',drillId:'weight-transfer'},{type:'DRILL',drillId:'alignment-check'},{type:'CHECK_IN',prompt:'Registre se consegue manter guarda, visão, respiração e movimento após a transferência.'}]},
+ {id:'stance-switch-01',version:1,title:'Troca e Recuperação de Base V1',blocks:[{type:'INSTRUCTION',title:'Recuperar é parte do movimento',text:'Troque lentamente e confirme base, guarda, visão e equilíbrio após cada ação.'},{type:'DRILL',drillId:'stance-switch'},{type:'CHECK_IN',prompt:'Após cada troca, você consegue parar ou iniciar deslocamento sem passo corretivo extra?'}]},
+ {id:'forward-backward-01',version:1,title:'Avanço + Recuo V1',rounds:3,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Distância sem perder estrutura',text:'Use passos curtos e mantenha base suficiente para defender, recuar ou executar técnica.'},{type:'DRILL',drillId:'forward-step'},{type:'DRILL',drillId:'backward-step'},{type:'CHECK_IN',prompt:'Registre equilíbrio e capacidade de resposta ao final de cada passo.'}]},
+ {id:'lateral-diagonal-01',version:1,title:'Lateral + Diagonal V1',rounds:3,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Mudar linha',text:'Primeiro domine a geometria. Depois integre velocidade e técnica.'},{type:'DRILL',drillId:'lateral-step'},{type:'DRILL',drillId:'diagonal-step'},{type:'CHECK_IN',prompt:'Registre guarda, orientação corporal e equilíbrio no retorno.'}]},
+];
+export const movementPack={techniques:movementTechniques,drills:movementDrills,sessions:movementSessions};
