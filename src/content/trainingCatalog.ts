@@ -1,10 +1,10 @@
 import type { DrillDefinition, TechniqueDefinition, TrainingSessionDefinition } from './trainingTypes';
 import { drills, techniques, fundamentos01 } from './fundamentalTrainingPack';
-import { foundationPack, movementPack } from './foundationExpansion';
+import { foundationPack, movementPack, strikeMovementTechnique, strikeMovementDrill, strikeMovementSession } from './foundationExpansion';
 
-const allTechniques=[...techniques,...foundationPack.techniques,...movementPack.techniques];
-const allDrills=[...drills,...foundationPack.drills,...movementPack.drills];
-const allSessions=[fundamentos01,...foundationPack.sessions,...movementPack.sessions];
+const allTechniques=[...techniques,...foundationPack.techniques,...movementPack.techniques,strikeMovementTechnique];
+const allDrills=[...drills,...foundationPack.drills,...movementPack.drills,strikeMovementDrill];
+const allSessions=[fundamentos01,...foundationPack.sessions,...movementPack.sessions,strikeMovementSession];
 
 export type CatalogStatus='CONFIRMED'|'SOURCE_PENDING';
 export type CatalogEntry<T>={status:CatalogStatus;id:string;version:number;content?:T;note:string};
