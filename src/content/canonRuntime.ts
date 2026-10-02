@@ -1,0 +1,1 @@
+import{officialCanonRegistry}from'./officialCanonRegistry';import{assertActiveLearningUnitContent}from'../learning/contentGateIntegration';export const canonRuntime={registry:officialCanonRegistry,assertUnit:(unit:{sourceRefs:readonly string[]})=>assertActiveLearningUnitContent(officialCanonRegistry,unit)} as const;
