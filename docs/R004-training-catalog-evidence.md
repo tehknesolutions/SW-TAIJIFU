@@ -28,3 +28,17 @@ Repository tests were added, but this connector session does not execute npm com
 ## Development rule
 
 GitHub + GPT remain sufficient to advance the project. Local execution, Actions, paid services and external tooling remain optional verification helpers rather than roadmap gates.
+
+
+## M028-M034 increment
+
+The second seven-M increment is now source-backed from docs/M028 through docs/M034:
+- M028 weight distribution;
+- M029 body alignment;
+- M030 stance switch and recovery;
+- M031 forward step;
+- M032 backward step;
+- M033 lateral step;
+- M034 diagonal step.
+
+These are represented as versioned techniques, drills and reusable sessions. The implementation preserves the source mechanics and criteria and does not introduce additional movement mechanics.
