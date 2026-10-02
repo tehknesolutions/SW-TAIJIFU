@@ -1,0 +1,1 @@
+import{resolveActiveUnitRuntime}from'../learning/activeUnitRuntime';import type{RuntimeRegisteredUnit}from'../learning/registryRuntime';export function resolveJourneyActiveUnit(units:readonly RuntimeRegisteredUnit[],completed:ReadonlySet<string>){return resolveActiveUnitRuntime(units,completed);}
