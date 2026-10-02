@@ -1,0 +1,3 @@
+import React from 'react';
+import type { AppState } from '../../domain/types';
+export function TrainingSummary({state,onContinue}:{state:AppState;onContinue:()=>void}){const run=state.trainingRun;return <section className="panel flow"><p className="eyebrow">SESSÃO REGISTRADA</p><h1>{run?.status==='STOPPED'?'Sessão interrompida':'Fundamentos 01 concluído'}</h1><p className="lead">{run?.status==='STOPPED'?'A interrupção é um estado válido e não conta como conclusão.':String(run?.evidenceIds.length??0)+' blocos registrados com evidência.'}</p><button className="primary" onClick={onContinue}>Ver progresso</button></section>}
