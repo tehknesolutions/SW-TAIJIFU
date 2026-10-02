@@ -1,0 +1,2 @@
+import type{CanonRelease}from'./types';
+export const canonQuery=(canon:CanonRelease)=>({getBase:(id:string)=>canon.basas.find(x=>x.id===id),getFaixa:(id:string)=>canon.faixas.find(x=>x.id===id),getCaminho:(id:string)=>canon.caminhos.find(x=>x.id===id),getNucleo:(id:string)=>canon.nucleos.find(x=>x.id===id),listBases:()=>canon.basas,listFaixas:()=>canon.faixas,listCaminhos:()=>canon.caminhos,listNucleos:()=>canon.nucleos});
