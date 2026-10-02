@@ -1,0 +1,1 @@
+import{createCanonSourceRegistry}from'./canonSourceRegistry';export const officialCanonRegistry=createCanonSourceRegistry([{id:'M005',title:'M005',kind:'OFFICIAL'},{id:'M008',title:'M008',kind:'OFFICIAL'},{id:'M026',title:'M026',kind:'OFFICIAL'}]);
