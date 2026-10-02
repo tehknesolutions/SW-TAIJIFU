@@ -1,13 +1,12 @@
-export type Readiness = 'READY' | 'MODIFY' | 'PAUSE_AND_REVIEW';
-export type MasteryState = 'LEARNING' | 'PRACTICING' | 'CONSISTENT' | 'MASTERED_FOR_LEVEL';
-export type LearningStage = 'UNDERSTAND' | 'OBSERVE' | 'PREPARE' | 'EXECUTE' | 'PRACTICE' | 'APPLY' | 'REFLECT' | 'ASSESS';
-
-export type LearnerProfile = { id: string; displayName: string; goal: string; onboardingStatus: 'BASELINE_REQUIRED' | 'READY' };
-export type BaselineRecord = { occurredAt: string; protocolVersion: '1'; readiness: Readiness; concern: boolean };
-export type Evidence = { id: string; lessonId: string; stage: LearningStage; kind: 'COMPLETION' | 'REFLECTION' | 'ASSESSMENT'; value?: string; createdAt: string };
-export type LessonRun = { lessonId: string; lessonVersion: number; currentStageIndex: number; completedStages: LearningStage[]; evidenceIds: string[]; status: 'IN_PROGRESS' | 'COMPLETED' | 'BLOCKED' };
-export type MasteryRecord = { lessonId: string; state: MasteryState; evidenceIds: string[]; reasons: string[] };
-export type AppState = { schemaVersion: 1; profile: LearnerProfile | null; baseline: BaselineRecord | null; lessonRun: LessonRun | null; evidence: Evidence[]; mastery: MasteryRecord[] };
-
-export type LessonStageDefinition = { stage: LearningStage; title: string; instruction: string; physical?: boolean };
-export type LessonDefinition = { id: string; version: number; title: string; objective: string; stages: readonly LessonStageDefinition[] };
+export type Readiness='READY'|'MODIFY'|'PAUSE_AND_REVIEW';
+export type MasteryState='LEARNING'|'PRACTICING'|'CONSISTENT'|'MASTERED_FOR_LEVEL';
+export type LearningStage='UNDERSTAND'|'OBSERVE'|'PREPARE'|'EXECUTE'|'PRACTICE'|'APPLY'|'REFLECT'|'ASSESS';
+export type LearnerProfile={id:string;displayName:string;goal:string;onboardingStatus:'BASELINE_REQUIRED'|'READY'};
+export type BaselineRecord={occurredAt:string;protocolVersion:'1';readiness:Readiness;concern:boolean};
+export type Evidence={id:string;lessonId:string;stage:LearningStage;kind:'COMPLETION'|'REFLECTION'|'ASSESSMENT';value?:string;createdAt:string;sessionId?:string;blockIndex?:number;drillId?:string};
+export type LessonRun={lessonId:string;lessonVersion:number;currentStageIndex:number;completedStages:LearningStage[];evidenceIds:string[];status:'IN_PROGRESS'|'COMPLETED'|'BLOCKED'};
+export type MasteryRecord={lessonId:string;state:MasteryState;evidenceIds:string[];reasons:string[]};
+export type TrainingSessionRun={sessionId:string;sessionVersion:number;status:'READY'|'RUNNING'|'PAUSED'|'STOPPED'|'COMPLETED';currentBlockIndex:number;currentRound:number;completedReps:number;remainingSeconds?:number;evidenceIds:string[]};
+export type AppState={schemaVersion:1;profile:LearnerProfile|null;baseline:BaselineRecord|null;lessonRun:LessonRun|null;trainingRun:TrainingSessionRun|null;evidence:Evidence[];mastery:MasteryRecord[]};
+export type LessonStageDefinition={stage:LearningStage;title:string;instruction:string;physical?:boolean};
+export type LessonDefinition={id:string;version:number;title:string;objective:string;stages:readonly LessonStageDefinition[]};
