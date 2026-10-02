@@ -1,0 +1,80 @@
+import type { DrillDefinition, TechniqueDefinition, TrainingSessionDefinition } from './trainingTypes';
+
+export const foundationTechniques:readonly TechniqueDefinition[]=[
+ {id:'neutral-stance',version:1,title:'Base Neutra',objective:'Organizar o corpo antes da especialização em guarda e deslocamento.',checkpoints:['pés em largura confortável','peso distribuído','joelhos acompanhando os pés','coluna ereta sem rigidez','respiração livre'],safety:['geometria adaptável à anatomia','estabilidade funcional acima de rigidez']},
+ {id:'fundamental-guard-v1',version:1,title:'Guarda Fundamental V1',objective:'Criar posição defensiva funcional que permita ver, respirar, mover e retornar à proteção.',checkpoints:['mãos próximas à linha do rosto','visão livre','queixo discretamente recolhido','cotovelos próximos sem rigidez','ombros relaxados'],safety:['sem tensão desnecessária','movimento controlado']},
+ {id:'warmup-preparation',version:1,title:'Aquecimento SimpleWay V1',objective:'Preparar progressivamente o corpo sem transformar o aquecimento no treino principal.',checkpoints:['começar fácil','mobilidade controlada','ativação leve','preparação específica'],safety:['amplitude e velocidade confortáveis','dor aguda ou sintomas anormais encerram o exercício']},
+ {id:'fundamental-mobility',version:1,title:'Mobilidade Fundamental V1',objective:'Desenvolver amplitude controlada útil às bases, deslocamentos e golpes.',checkpoints:['controle','amplitude progressiva','integração com postura e movimento'],safety:['sem movimentos balísticos','sem dor aguda','registrar limitações relevantes']},
+ {id:'fundamental-conditioning',version:1,title:'Condicionamento Fundamental V1',objective:'Sustentar treino técnico sem transformar fadiga em técnica ruim.',checkpoints:['execução controlada','esforço moderado','progressão de uma variável por vez'],safety:['regredir quando a técnica degradar','esforço inicial aproximadamente 4–6/10']},
+ {id:'fundamental-core',version:1,title:'Core Fundamental V1',objective:'Estabilizar o tronco e conectar força das pernas ao movimento.',checkpoints:['respiração durante esforço','coluna confortável','posição mantida com controle'],safety:['não sacrificar posição por duração','progressão gradual']},
+ {id:'post-training-recovery',version:1,title:'Recuperação Pós-Treino V1',objective:'Reduzir progressivamente o esforço e registrar observações da sessão.',checkpoints:['marcha mais leve','respiração controlada','mobilidade leve','registro final'],safety:['não forçar amplitude','reduzir ou interromper diante de sinais relevantes']},
+];
+
+export const foundationDrills:readonly DrillDefinition[]=[
+ {id:'warmup-elevate',version:1,title:'Elevar atividade',techniqueIds:['warmup-preparation'],mode:'TIMED',target:120,physical:true},
+ {id:'warmup-mobility',version:1,title:'Mobilidade dinâmica',techniqueIds:['warmup-preparation'],mode:'TIMED',target:120,physical:true},
+ {id:'warmup-activation',version:1,title:'Ativação',techniqueIds:['warmup-preparation'],mode:'TIMED',target:120,physical:true},
+ {id:'warmup-specific',version:1,title:'Preparação específica',techniqueIds:['warmup-preparation'],mode:'TIMED',target:60,physical:true},
+ {id:'mobility-ankle',version:1,title:'Mobilidade de tornozelo',techniqueIds:['fundamental-mobility'],mode:'REPS',target:6,restSeconds:10,physical:true},
+ {id:'mobility-hip',version:1,title:'Abertura/fechamento de quadril',techniqueIds:['fundamental-mobility'],mode:'REPS',target:6,restSeconds:10,physical:true},
+ {id:'mobility-squat',version:1,title:'Agachamento assistido',techniqueIds:['fundamental-mobility'],mode:'REPS',target:6,restSeconds:10,physical:true},
+ {id:'mobility-t-spine',version:1,title:'Rotação torácica',techniqueIds:['fundamental-mobility'],mode:'REPS',target:6,restSeconds:10,physical:true},
+ {id:'mobility-shoulders',version:1,title:'Círculos de ombro',techniqueIds:['fundamental-mobility'],mode:'REPS',target:6,restSeconds:10,physical:true},
+ {id:'neutral-stance-hold',version:1,title:'Organização da base neutra',techniqueIds:['neutral-stance'],mode:'TIMED',target:30,restSeconds:15,physical:true},
+ {id:'guard-hold',version:1,title:'Guarda organizada',techniqueIds:['fundamental-guard-v1'],mode:'TIMED',target:30,restSeconds:30,physical:true},
+ {id:'conditioning-march',version:1,title:'Marcha ativa',techniqueIds:['fundamental-conditioning'],mode:'TIMED',target:30,physical:true},
+ {id:'conditioning-squat',version:1,title:'Agachamento controlado',techniqueIds:['fundamental-conditioning'],mode:'REPS',target:8,physical:true},
+ {id:'conditioning-push',version:1,title:'Flexão na variante adequada',techniqueIds:['fundamental-conditioning'],mode:'REPS',target:5,physical:true},
+ {id:'conditioning-plank',version:1,title:'Prancha na variante adequada',techniqueIds:['fundamental-conditioning'],mode:'TIMED',target:20,physical:true},
+ {id:'conditioning-shadow',version:1,title:'Shadowboxing leve / passos de base',techniqueIds:['fundamental-conditioning'],mode:'TIMED',target:30,physical:true},
+ {id:'core-dead-bug',version:1,title:'Dead bug',techniqueIds:['fundamental-core'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'core-bird-dog',version:1,title:'Bird dog',techniqueIds:['fundamental-core'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'core-plank',version:1,title:'Prancha',techniqueIds:['fundamental-core'],mode:'TIMED',target:20,restSeconds:15,physical:true},
+ {id:'core-glute-bridge',version:1,title:'Ponte de glúteos',techniqueIds:['fundamental-core'],mode:'REPS',target:8,restSeconds:15,physical:true},
+ {id:'recovery-cooldown',version:1,title:'Cooldown',techniqueIds:['post-training-recovery'],mode:'TIMED',target:300,physical:false},
+];
+
+export const foundationSessions:readonly TrainingSessionDefinition[]=[
+ {id:'warmup-01',version:1,title:'Aquecimento SimpleWay V1',blocks:[{type:'INSTRUCTION',title:'Preparar',text:'Comece fácil e termine com sensação de prontidão, não fadiga.'},{type:'DRILL',drillId:'warmup-elevate'},{type:'DRILL',drillId:'warmup-mobility'},{type:'DRILL',drillId:'warmup-activation'},{type:'DRILL',drillId:'warmup-specific'},{type:'CHECK_IN',prompt:'Você terminou mais pronto do que começou?'}]},
+ {id:'mobility-01',version:1,title:'Mobilidade Fundamental V1',rounds:1,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Controle primeiro',text:'Execute lentamente. Depois de controlar, amplie a amplitude.'},{type:'DRILL',drillId:'mobility-ankle'},{type:'DRILL',drillId:'mobility-hip'},{type:'DRILL',drillId:'mobility-squat'},{type:'DRILL',drillId:'mobility-t-spine'},{type:'DRILL',drillId:'mobility-shoulders'},{type:'CHECK_IN',prompt:'Registre limitações relevantes para adaptar o treino.'}]},
+ {id:'conditioning-01',version:1,title:'Condicionamento Fundamental V1',rounds:2,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Circuito V1',text:'2–4 rounds conforme baseline. Regresse quando a execução perder controle.'},{type:'DRILL',drillId:'conditioning-march'},{type:'DRILL',drillId:'conditioning-squat'},{type:'DRILL',drillId:'conditioning-push'},{type:'DRILL',drillId:'conditioning-plank'},{type:'DRILL',drillId:'conditioning-shadow'},{type:'CHECK_IN',prompt:'Registre esforço final e qualidade técnica.'}]},
+ {id:'core-01',version:1,title:'Core Fundamental V1',rounds:2,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Estabilizar',text:'Respire durante o esforço e não sacrifique posição por duração.'},{type:'DRILL',drillId:'core-dead-bug'},{type:'DRILL',drillId:'core-bird-dog'},{type:'DRILL',drillId:'core-plank'},{type:'DRILL',drillId:'core-glute-bridge'},{type:'CHECK_IN',prompt:'Registre controle e conforto do tronco.'}]},
+ {id:'recovery-01',version:1,title:'Recuperação Pós-Treino V1',blocks:[{type:'DRILL',drillId:'recovery-cooldown'},{type:'CHECK_IN',prompt:'Registre esforço final, desconfortos e observações da sessão.'}]},
+ {id:'stance-guard-01',version:1,title:'Base Neutra + Guarda V1',rounds:3,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Organização',text:'A base neutra é referência antes da especialização em guarda.'},{type:'DRILL',drillId:'neutral-stance-hold'},{type:'REST',seconds:15},{type:'DRILL',drillId:'guard-hold'},{type:'CHECK_IN',prompt:'Você consegue deslocar levemente o peso e retornar ao centro sem passo involuntário?'}]},
+];
+
+export const foundationPack={techniques:foundationTechniques,drills:foundationDrills,sessions:foundationSessions};
+
+export const movementTechniques:readonly TechniqueDefinition[]=[
+ {id:'weight-distribution',version:1,title:'Distribuição de Peso V1',objective:'Permitir estabilidade e mudança de direção sem prender o praticante ao chão.',checkpoints:['centro de massa pequeno e controlado','pés estáveis','joelhos alinhados com os pés','tronco sem compensação','retorno à prontidão'],safety:['variações adaptáveis à anatomia e movimento']},
+ {id:'body-alignment',version:1,title:'Alinhamento Corporal V1',objective:'Criar postura marcial estável, móvel e sem tensão desnecessária.',checkpoints:['cabeça equilibrada','queixo protegido sem excesso','ombros relaxados','caixa torácica e pelve organizadas','quadril disponível','joelhos acompanham pés','pés estáveis'],safety:['alinhamento dinâmico','evitar rigidez e compensações observáveis']},
+ {id:'stance-switch-recovery',version:1,title:'Troca e Recuperação de Base V1',objective:'Trocar a base sem salto ou cruzamento descontrolado, terminando funcional.',checkpoints:['partir da guarda','apoios reorganizados sem unir os pés','base recuperada','guarda e equilíbrio confirmados'],safety:['velocidade só aumenta quando a recuperação deixa de exigir reorganização consciente']},
+ {id:'forward-step',version:1,title:'Avanço V1',objective:'Reduzir distância sem abandonar a estrutura marcial.',checkpoints:['pé da direção inicia','segundo pé restaura distância','guarda e visão preservadas','centro de massa controlado','terminar equilibrado'],safety:['passos curtos antes de longos','não cruzar os pés']},
+ {id:'backward-step',version:1,title:'Recuo V1',objective:'Aumentar distância mantendo visão, proteção e capacidade de responder.',checkpoints:['pé da direção inicia','segundo pé restaura base','tronco não foge do movimento','olhar à frente','guarda preservada'],safety:['passos compatíveis com o espaço disponível','não cruzar os pés']},
+ {id:'lateral-step',version:1,title:'Deslocamento Lateral V1',objective:'Mudar de linha sem perder a largura funcional da base.',checkpoints:['pé da direção inicia','outro acompanha','tronco orientado','guarda preservada','parada controlada'],safety:['não cruzar nem juntar completamente os apoios']},
+ {id:'diagonal-step',version:1,title:'Deslocamento Diagonal V1',objective:'Combinar mudança de distância e linha em um único deslocamento.',checkpoints:['direção diagonal definida','pé mais próximo inicia','base restaurada','guarda ativa','retorno equilibrado'],safety:['primeiro dominar geometria','não cruzar os pés']},
+];
+export const movementDrills:readonly DrillDefinition[]=[
+ {id:'weight-transfer',version:1,title:'Transferência de peso na guarda',techniqueIds:['weight-distribution'],mode:'TIMED',target:30,restSeconds:30,physical:true},
+ {id:'alignment-check',version:1,title:'Teste funcional de alinhamento',techniqueIds:['body-alignment'],mode:'TIMED',target:30,restSeconds:15,physical:true},
+ {id:'stance-switch',version:1,title:'Troca lenta de base',techniqueIds:['stance-switch-recovery'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'forward-step',version:1,title:'Avanço lento',techniqueIds:['forward-step'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'backward-step',version:1,title:'Recuo lento',techniqueIds:['backward-step'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'lateral-step',version:1,title:'Deslocamento lateral',techniqueIds:['lateral-step'],mode:'REPS',target:5,restSeconds:15,physical:true},
+ {id:'diagonal-step',version:1,title:'Deslocamento diagonal',techniqueIds:['diagonal-step'],mode:'REPS',target:3,restSeconds:15,physical:true},
+];
+export const movementSessions:readonly TrainingSessionDefinition[]=[
+ {id:'weight-alignment-01',version:1,title:'Peso + Alinhamento V1',rounds:2,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Organizar para mover',text:'Mantenha estabilidade e capacidade de mudança sem prender o corpo ao chão.'},{type:'DRILL',drillId:'weight-transfer'},{type:'DRILL',drillId:'alignment-check'},{type:'CHECK_IN',prompt:'Registre se consegue manter guarda, visão, respiração e movimento após a transferência.'}]},
+ {id:'stance-switch-01',version:1,title:'Troca e Recuperação de Base V1',blocks:[{type:'INSTRUCTION',title:'Recuperar é parte do movimento',text:'Troque lentamente e confirme base, guarda, visão e equilíbrio após cada ação.'},{type:'DRILL',drillId:'stance-switch'},{type:'CHECK_IN',prompt:'Após cada troca, você consegue parar ou iniciar deslocamento sem passo corretivo extra?'}]},
+ {id:'forward-backward-01',version:1,title:'Avanço + Recuo V1',rounds:3,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Distância sem perder estrutura',text:'Use passos curtos e mantenha base suficiente para defender, recuar ou executar técnica.'},{type:'DRILL',drillId:'forward-step'},{type:'DRILL',drillId:'backward-step'},{type:'CHECK_IN',prompt:'Registre equilíbrio e capacidade de resposta ao final de cada passo.'}]},
+ {id:'lateral-diagonal-01',version:1,title:'Lateral + Diagonal V1',rounds:3,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Mudar linha',text:'Primeiro domine a geometria. Depois integre velocidade e técnica.'},{type:'DRILL',drillId:'lateral-step'},{type:'DRILL',drillId:'diagonal-step'},{type:'CHECK_IN',prompt:'Registre guarda, orientação corporal e equilíbrio no retorno.'}]},
+];
+export const movementPack={techniques:movementTechniques,drills:movementDrills,sessions:movementSessions};
+
+export const strikeMovementTechnique:TechniqueDefinition={id:'pivot',version:1,title:'Pivot V1',objective:'Alterar o ângulo de orientação sem deslocamento linear excessivo.',checkpoints:['manter um apoio como eixo momentâneo','aliviar o outro pé','girar em pequena amplitude','reposicionar o pé móvel','recuperar base, guarda e visão'],safety:['15°–30° em baixa velocidade antes de aproximadamente 45°','não torcer o joelho com o pé preso','não cruzar os pés','ângulo é consequência do controle']};
+export const strikeMovementDrill:DrillDefinition={id:'pivot',version:1,title:'Pivot',techniqueIds:['pivot'],mode:'REPS',target:5,restSeconds:15,physical:true};
+export const strikeMovementSession:TrainingSessionDefinition={id:'pivot-01',version:1,title:'Pivot V1',rounds:2,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Mudar ângulo',text:'Altere a orientação em pequena amplitude e recupere base, guarda e visão.'},{type:'DRILL',drillId:'pivot'},{type:'CHECK_IN',prompt:'Registre conforto de joelhos/tornozelos e clareza da orientação final.'}]};
+
+export const uppercutTechnique:TechniqueDefinition={id:'uppercut',version:1,title:'Uppercut V1',objective:'Executar golpe compacto de trajetória ascendente com pequena participação de pernas, quadril e tronco.',checkpoints:['partir da guarda','pequena flexão confortável sem mergulhar o tronco','extensão/rotação curta','trajetória ascendente compacta','punho alinhado ao antebraço','mão oposta protege','retornar à guarda e postura'],safety:['sem agachamento profundo','sem projetar o corpo para frente','sem abrir excessivamente o cotovelo','priorizar cadeia, trajetória e equilíbrio antes de potência ou velocidade']};
+export const uppercutDrill:DrillDefinition={id:'uppercut',version:1,title:'Uppercut lento',techniqueIds:['uppercut'],mode:'REPS',target:10,restSeconds:20,physical:true};
+export const uppercutSession:TrainingSessionDefinition={id:'uppercut-01',version:1,title:'Uppercut V1',rounds:2,repeatFromBlockIndex:1,blocks:[{type:'INSTRUCTION',title:'Trajetória compacta',text:'Pratique lentamente a cadeia do movimento. Potência e velocidade entram depois do controle.'},{type:'DRILL',drillId:'uppercut'},{type:'CHECK_IN',prompt:'Registre trajetória, equilíbrio e retorno à guarda em cada lado.'}]};

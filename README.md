@@ -5,31 +5,33 @@ SimpleWay Taijifu é a plataforma/metodologia de ensino do sistema Taijifu.
 ## Estado
 
 - M001–M120: roadmap/specification corpus.
-- R001: runtime web executável iniciado.
-- Primeiro slice funcional: onboarding → baseline → Fundamental Stance → evidência/mastery → persistência local → continuidade após reload.
-- `V1_RUNTIME_COMPLETE` e `V1_RELEASED` ainda dependem dos gates definidos em M120.
+- R001/R001.1: runtime web + primeiro learner slice.
+- R002: learner dashboard, mapa e próximo passo.
+- R003: Training Runtime com Technique → Drill → Session → Evidence → Progress.
+- R004: versioned physical-training catalog boundary; new executable canon remains source-pending until supported by project material.
+- `V1_RUNTIME_COMPLETE` e `V1_RELEASED` continuam dependentes dos gates definidos em M120.
 
-## Runtime
+## R003 Training Runtime
 
-Stack: React + TypeScript + Vite. Estado do primeiro vertical slice é local-first e versionado no `localStorage`.
+O primeiro pacote físico executável é `Fundamentos 01`:
 
-```bash
-npm install
-npm run dev
-npm test
-npm run build
-```
+Base Fundamental → Guarda Fundamental → Deslocamento Fundamental → Golpe Reto Fundamental controlado/não-contato.
 
-## Regras de domínio preservadas
+O runtime suporta estado de sessão, repetições, blocos temporizados, descanso, pause/resume/stop, readiness, evidência e persistência.
 
-- canon e progresso do aluno são responsabilidades separadas;
-- readiness pode bloquear execução física sem bloquear conteúdo conceitual;
-- mastery deriva de evidência, não de porcentagem de telas;
-- conteúdo de aula é estruturado/versionado, separado do estado persistido;
-- storage inválido ou de versão incompatível volta para estado inicial seguro.
+## R004 Training Catalog
 
-## Convenção de entrega
+O catálogo agora separa explicitamente:
+- conteúdo confirmado e executável;
+- conteúdo ainda dependente de fonte/canon;
+- sessões compostas a partir do conteúdo confirmado.
 
-Cada M/R é uma entrega atômica, verificável e versionável.
+Nenhuma técnica nova é promovida a canon sem suporte explícito nas fontes do projeto.
+
+## Regra de desenvolvimento
+
+GitHub + GPT continuam suficientes para manter o desenvolvimento avançando. Execução local, GitHub Actions, serviços pagos e ferramentas externas são auxiliares opcionais e não bloqueiam o roadmap.
+
+## Convenção
 
 `M/R → Issue → Branch → Implementação/Conteúdo → Evidência → PR → Merge → DONE`
