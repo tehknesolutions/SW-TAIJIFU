@@ -1,0 +1,4 @@
+import type{MasteryState}from'../domain/types';import{isReadyFor}from'./prerequisites';
+export type NextStepCandidate={id:string;title:string;prerequisites:readonly string[];mastery:MasteryState;goalMatch?:boolean;unfinished?:boolean};
+export type NextStepDecision={id:string;title:string;reason:string};
+export function chooseNextStep(candidates:readonly NextStepCandidate[],completed:ReadonlySet<string>):NextStepDecision|undefined{const ready=candidates.filter(c=>isReadyFor(Object.fromEntries(candidates.map(x=>[x.id,x.prerequisites])),completed,c.id)&&c.mastery!=='MASTERED_FOR_LEVEL');const unfinished=ready.filter(c=>c.unfinished);const goal=unfinished.filter(c=>c.goalMatch);const pick=goal[0]??unfinished[0]??ready[0];return pick?{id:pick.id,title:pick.title,reason:pick.unfinished?'Continue unfinished work':pick.goalMatch?'Matches learner goal':'Prerequisites and safety state allow progression'}:undefined;}

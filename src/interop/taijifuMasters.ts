@@ -1,0 +1,3 @@
+export type TaijifuMastersRef={canonRef:string;techniqueId:string;motionAssetIds:readonly string[];achievementEvidenceIds?:readonly string[]};
+export type TaijifuMastersEnvelope={schemaVersion:'1';source:'SW-TAIJIFU';refs:readonly TaijifuMastersRef[]};
+export function createInteropEnvelope(refs:readonly TaijifuMastersRef[]):TaijifuMastersEnvelope{return{schemaVersion:'1',source:'SW-TAIJIFU',refs:Object.freeze(refs.map(x=>Object.freeze({...x,motionAssetIds:Object.freeze([...x.motionAssetIds]),achievementEvidenceIds:x.achievementEvidenceIds?Object.freeze([...x.achievementEvidenceIds]):undefined})))}} 

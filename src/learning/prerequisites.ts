@@ -1,0 +1,3 @@
+export type PrerequisiteGraph=Readonly<Record<string,readonly string[]>>;
+export function validatePrerequisiteGraph(g:PrerequisiteGraph):string[]{const errors:string[]=[];const visiting=new Set<string>();const visited=new Set<string>();const visit=(n:string)=>{if(visiting.has(n)){errors.push('PREREQUISITE_CYCLE');return;}if(visited.has(n))return;visiting.add(n);for(const dep of g[n]??[])visit(dep);visiting.delete(n);visited.add(n)};Object.keys(g).forEach(visit);return [...new Set(errors)];}
+export function isReadyFor(g:PrerequisiteGraph,completed:ReadonlySet<string>,id:string):boolean{return(g[id]??[]).every(x=>completed.has(x));}
