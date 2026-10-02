@@ -8,6 +8,9 @@ import { BaselineView } from './features/baseline/BaselineView';
 import { fundamentalStanceLesson } from './content/fundamentalStance';
 import { completeStage, startLesson } from './features/lesson/lessonEngine';
 import { LessonView } from './features/lesson/LessonView';
+import { ProgressView } from './features/progress/ProgressView';
+import { ProgressMapView } from './features/map/ProgressMapView';
+import { getNextStep } from './domain/nextStep';
 
 type View = 'home' | 'map' | 'train' | 'progress';
 
@@ -25,13 +28,11 @@ export function App() {
     : !state.baseline ? <BaselineView onComplete={(input) => setState((s) => completeBaseline(s, input))} />
     : <LessonView state={state.lessonRun ? state : startLesson(state, fundamentalStanceLesson)} lesson={fundamentalStanceLesson} onAdvance={(value) => setState((s) => completeStage(startLesson(s, fundamentalStanceLesson), fundamentalStanceLesson, value))} />;
 
-  const mastery = state.mastery.find((item) => item.lessonId === fundamentalStanceLesson.id);
+  const next = getNextStep(state);
   return <main className="app-shell"><header className="topbar"><button className="brand" onClick={() => setView('home')}>SIMPLEWAY <strong>TAIJIFU</strong></button><nav aria-label="Navegação principal"><button onClick={() => setView('map')}>Mapa</button><button onClick={enterTraining}>Treinar</button><button onClick={() => setView('progress')}>Progresso</button></nav></header>
-    {view === 'home' && <section className="hero"><p className="eyebrow">TAI · JI · FU</p><h1>Aprenda. Pratique. Integre.</h1><p className="lead">{state.profile ? `Olá, ${state.profile.displayName}. ${state.lessonRun ? 'Continue exatamente de onde parou.' : 'Seu primeiro ciclo está pronto.'}` : 'Comece pelo onboarding e transforme os fundamentos em prática registrada.'}</p><button className="primary hero-action" onClick={enterTraining}>{state.profile ? 'Continuar jornada' : 'Começar agora'}</button></section>}
+    {view === 'home' && <section className="hero"><p className="eyebrow">TAI · JI · FU</p><h1>Aprenda. Pratique. Integre.</h1><p className="lead">{state.profile ? `Olá, ${state.profile.displayName}. ${next.detail}` : next.detail}</p><div className="dashboard-card"><small>PRÓXIMO PASSO</small><strong>{next.title}</strong><span>{state.baseline?.readiness ?? 'BASELINE PENDENTE'} · {state.evidence.length} evidências</span></div><button className="primary hero-action" onClick={enterTraining}>{next.kind === 'CONTINUE_LESSON' ? 'Continuar aula' : next.kind === 'COMPLETE' ? 'Revisar treino' : 'Seguir jornada'}</button></section>}
     {view === 'train' && training}
-    {view === 'map' && <Placeholder title="Mapa Taijifu" text="A integração canônica completa entra no próximo slice. Seu progresso local já está separado do canon." />}
-    {view === 'progress' && <section className="panel flow"><p className="eyebrow">PROGRESSO</p><h1>{mastery?.state ?? 'LEARNING'}</h1><p className="lead">{state.evidence.length} evidências registradas. {mastery?.reasons[0] ?? 'Comece sua primeira unidade.'}</p></section>}
+    {view === 'map' && <ProgressMapView state={state} onTrain={enterTraining} />}
+    {view === 'progress' && <ProgressView state={state} />}
   </main>;
 }
-
-function Placeholder({ title, text }: { title: string; text: string }) { return <section className="panel"><p className="eyebrow">V1 RUNTIME</p><h1>{title}</h1><p className="lead">{text}</p></section>; }
