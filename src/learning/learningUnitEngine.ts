@@ -1,0 +1,5 @@
+export type LearningUnitStage='LESSON'|'DEMONSTRATION'|'PRACTICE'|'ASSESSMENT'|'MASTERY'|'PROGRESS';
+export type LearningUnitDefinition={id:string;version:number;title:string;sourceRefs:readonly string[];techniqueId:string;sessionId:string;lesson:{definition:string;construction:readonly string[];rule:string};demonstration:{view:'TEXT_INSTRUCTION';checkpoints:readonly string[]};safety:{practice:string;stopRules:readonly string[];intensity:string};assessment:{dimensions:readonly string[];scale:readonly number[];qualityTest:string;note:string}};
+export type MaterializedStage={stage:LearningUnitStage;runtimeRef?:string;fallback?:'TEXT_INSTRUCTION'};
+export type MaterializedLearningUnit=LearningUnitDefinition&{stages:readonly MaterializedStage[]};
+export function materializeLearningUnit(definition:LearningUnitDefinition):MaterializedLearningUnit{return Object.freeze({...definition,stages:Object.freeze([{stage:'LESSON'},{stage:'DEMONSTRATION',fallback:definition.demonstration.view},{stage:'PRACTICE',runtimeRef:definition.sessionId},{stage:'ASSESSMENT'},{stage:'MASTERY'},{stage:'PROGRESS'}])});}
