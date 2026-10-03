@@ -1,0 +1,1 @@
+import{describe,it,expect}from'vitest';import{resolveJourneyAssessmentFormModel}from'./V1JourneyAssessmentFormModel';describe('R071 Journey assessment form model',()=>{it('combines local form values with submit readiness',()=>{expect(resolveJourneyAssessmentFormModel(['a','b'],{a:1,b:2},' ok ')).toEqual({scores:{a:1,b:2},observation:' ok ',canSubmit:true});});});
