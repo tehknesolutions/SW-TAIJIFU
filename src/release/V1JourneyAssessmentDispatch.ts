@@ -1,0 +1,1 @@
+import type{AppState}from'../domain/types';import{recordAssessmentEvidence}from'../learning/assessmentEvidence';export function dispatchJourneyAssessment(state:AppState,unit:any,input:{scores:Record<string,number>;observation:string},onChange:(state:AppState)=>void){onChange(recordAssessmentEvidence(state,unit,input));}
