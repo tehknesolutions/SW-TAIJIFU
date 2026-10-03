@@ -1,0 +1,1 @@
+import{resolveJourneyAssessmentFormPresentation}from'./V1JourneyAssessmentFormPresentation';export function resolveJourneyAssessmentFormModel(dimensions:readonly string[],scores:Record<string,number>,observation:string){return{scores,observation,...resolveJourneyAssessmentFormPresentation(dimensions,scores,observation)};}
