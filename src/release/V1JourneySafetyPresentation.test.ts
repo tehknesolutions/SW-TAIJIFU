@@ -1,0 +1,1 @@
+import{describe,it,expect}from'vitest';import{resolveJourneySafetyPresentation}from'./V1JourneySafetyPresentation';describe('R065 Journey safety presentation',()=>{it('projects stop rules from unit safety',()=>{expect(resolveJourneySafetyPresentation({safety:{stopRules:['dor','tontura']}} as any)).toEqual({stopRules:['dor','tontura']});});});
