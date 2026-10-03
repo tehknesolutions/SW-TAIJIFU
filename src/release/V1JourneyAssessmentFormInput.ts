@@ -1,0 +1,1 @@
+export function updateJourneyAssessmentScore(scores:Record<string,number>,dimension:string,value:string){return{...scores,[dimension]:Number(value)};}export function updateJourneyAssessmentObservation(value:string){return value;}
