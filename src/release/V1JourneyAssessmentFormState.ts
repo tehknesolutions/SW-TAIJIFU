@@ -1,0 +1,1 @@
+export type JourneyAssessmentFormState={scores:Record<string,number>;observation:string};export function createJourneyAssessmentFormState():JourneyAssessmentFormState{return{scores:{},observation:''};}
