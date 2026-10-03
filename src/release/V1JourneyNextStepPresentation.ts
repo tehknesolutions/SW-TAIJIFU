@@ -1,0 +1,1 @@
+import type{AppState}from'../domain/types';import{getNextStep}from'../domain/nextStep';export type JourneyNextStepPresentation={title:string;detail:string};export function resolveJourneyNextStepPresentation(state:AppState):JourneyNextStepPresentation{const next=getNextStep(state);return{title:next.title,detail:next.detail};}
