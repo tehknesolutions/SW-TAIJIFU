@@ -1,0 +1,1 @@
+export function resolveJourneyAssessmentFormPresentation(dimensions:readonly string[],scores:Record<string,number>,observation:string){return{canSubmit:!dimensions.some(d=>scores[d]===undefined)&&Boolean(observation.trim())};}

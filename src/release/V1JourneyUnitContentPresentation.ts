@@ -1,0 +1,1 @@
+export type JourneyUnitContentPresentation={title:string;lessonDefinition:string};export function resolveJourneyUnitContentPresentation(unit:{title:string;lesson:{definition:string}}):JourneyUnitContentPresentation{return{title:unit.title,lessonDefinition:unit.lesson.definition};}

@@ -1,0 +1,1 @@
+export type JourneySafetyPresentation={stopRules:readonly string[]};export function resolveJourneySafetyPresentation(unit:{safety:JourneySafetyPresentation}):JourneySafetyPresentation{return{stopRules:unit.safety.stopRules};}
