@@ -1,0 +1,1 @@
+import{describe,it,expect}from'vitest';import{resolveJourneyRuntimeContext}from'./V1JourneyRuntimeContext';describe('R060 Journey runtime context',()=>{it('returns status when progression has no current unit',()=>{const result=resolveJourneyRuntimeContext({evidence:[]} as any,[]);expect(result.kind).toBe('STATUS')});});

@@ -1,0 +1,1 @@
+import{describe,it,expect}from'vitest';import{resolveJourneyNextStepPresentation}from'./V1JourneyNextStepPresentation';describe('R062 Journey next-step presentation',()=>{it('projects next-step title and detail from app state',()=>{const result=resolveJourneyNextStepPresentation({} as any);expect(result).toHaveProperty('title');expect(result).toHaveProperty('detail');});});
