@@ -1,0 +1,1 @@
+import type{AppState}from'../domain/types';import{masteryDecisionForUnit}from'../learning/assessmentEvidence';export function resolveJourneyMasteryPresentation(state:AppState,unitId:string,completed:ReadonlySet<string>){return{completedCount:completed.size,masteryDecision:masteryDecisionForUnit(state,unitId)};}
