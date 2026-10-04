@@ -1,1 +1,1 @@
-import type{AppState}from'../domain/types';import{adaptJourneyViewRuntimeInput}from'./V1JourneyViewRuntimeAdapter';import{resolveJourneyViewRuntimeContext}from'./V1JourneyViewRuntimeResolver';export function resolveJourneyViewRuntime(state:AppState,units:any[],callbacks:{onChange:(state:AppState)=>void;onTrain:()=>void}){return resolveJourneyViewRuntimeContext(adaptJourneyViewRuntimeInput(state,units,callbacks));}
+export{resolveJourneyViewRuntimeFacade as resolveJourneyViewRuntime}from'./V1JourneyViewRuntimeFacade';
