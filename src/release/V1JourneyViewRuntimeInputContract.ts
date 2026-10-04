@@ -1,0 +1,1 @@
+import type{AppState}from'../domain/types';import type{JourneyViewRuntimeContext}from'./V1JourneyViewRuntimeContext';export type JourneyViewRuntimeInput={state:AppState;units:any[];callbacks:JourneyViewRuntimeContext['callbacks']};export type JourneyViewRuntimeCallbacks=JourneyViewRuntimeInput['callbacks'];
