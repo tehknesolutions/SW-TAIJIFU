@@ -1,0 +1,1 @@
+import{journeyRuntime}from'./V1JourneyViewRuntimeSurfaceDefaultApi';export const journeyRuntimeApi={run:journeyRuntime,adapt:journeyRuntime.adapt,resolve:journeyRuntime.resolve}as const;export type JourneyRuntimeApi=typeof journeyRuntimeApi;
