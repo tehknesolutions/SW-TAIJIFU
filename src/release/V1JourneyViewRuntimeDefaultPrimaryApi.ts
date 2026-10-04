@@ -1,0 +1,1 @@
+import type{JourneyRuntime}from'./V1JourneyViewRuntimeDefaultContract';import{journeyRuntimeApi}from'./V1JourneyViewRuntimeDefaultApi';export const runJourneyRuntime:JourneyRuntime=input=>journeyRuntimeApi.run(input);

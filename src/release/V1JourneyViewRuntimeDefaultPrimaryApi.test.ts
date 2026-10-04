@@ -1,0 +1,1 @@
+import{describe,it,expect,vi}from'vitest';import{runJourneyRuntime}from'./V1JourneyViewRuntimeDefaultPrimaryApi';describe('R107 Journey runtime default primary API',()=>{it('runs the default Journey runtime boundary',()=>{const input={state:{evidence:[]}as any,units:[],callbacks:{onChange:vi.fn(),onTrain:vi.fn()}};expect(runJourneyRuntime(input).screen.kind).toBe('STATUS');});});
