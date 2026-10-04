@@ -1,0 +1,1 @@
+import type{JourneyViewRuntimeInput}from'./V1JourneyViewRuntimeInputContract';import type{JourneyViewRuntime}from'./V1JourneyViewRuntimeContract';export type JourneyViewRuntimePrimary=(input:JourneyViewRuntimeInput)=>JourneyViewRuntime;
