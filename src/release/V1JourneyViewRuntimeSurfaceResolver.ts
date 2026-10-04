@@ -1,0 +1,1 @@
+import type{JourneyViewRuntimeInput}from'./V1JourneyViewRuntimeInputContract';import{adaptJourneyViewRuntimeSurfaceInput}from'./V1JourneyViewRuntimeSurfaceAdapter';import{journeyViewRuntime}from'./V1JourneyViewRuntimePrimaryApi';export function resolveJourneyViewRuntimeSurface(input:JourneyViewRuntimeInput){return journeyViewRuntime(adaptJourneyViewRuntimeSurfaceInput(input));}
