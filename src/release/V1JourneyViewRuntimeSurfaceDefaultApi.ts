@@ -1,1 +1,1 @@
-import type{JourneyViewRuntimeSurfaceCallable}from'./V1JourneyViewRuntimeSurfaceCallableContract';import{journeyViewRuntimeSurfaceCallableApi}from'./V1JourneyViewRuntimeSurfaceCallableApi';export const journeyRuntime:JourneyViewRuntimeSurfaceCallable=journeyViewRuntimeSurfaceCallableApi;
+import type{JourneyRuntime}from'./V1JourneyViewRuntimeDefaultContract';import{journeyViewRuntimeSurfaceCallableApi}from'./V1JourneyViewRuntimeSurfaceCallableApi';export const journeyRuntime:JourneyRuntime=journeyViewRuntimeSurfaceCallableApi;
