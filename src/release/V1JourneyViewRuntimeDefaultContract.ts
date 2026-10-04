@@ -1,0 +1,1 @@
+import type{JourneyViewRuntimeSurfaceCallable}from'./V1JourneyViewRuntimeSurfaceCallableContract';export type JourneyRuntime=JourneyViewRuntimeSurfaceCallable;
