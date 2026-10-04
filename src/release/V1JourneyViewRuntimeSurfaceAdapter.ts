@@ -1,0 +1,1 @@
+import type{JourneyViewRuntimeInput}from'./V1JourneyViewRuntimeInputContract';export function adaptJourneyViewRuntimeSurfaceInput(input:JourneyViewRuntimeInput):JourneyViewRuntimeInput{return input;}
