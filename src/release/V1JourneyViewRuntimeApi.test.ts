@@ -1,0 +1,1 @@
+import{describe,it,expect}from'vitest';import{journeyViewRuntimeApi}from'./V1JourneyViewRuntimeApi';describe('R089 Journey view runtime API',()=>{it('exposes the compatibility resolver through one API object',()=>{expect(journeyViewRuntimeApi.resolve).toBeTypeOf('function');});});

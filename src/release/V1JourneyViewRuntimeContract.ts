@@ -1,0 +1,1 @@
+import type{resolveJourneyViewRuntimeFacade}from'./V1JourneyViewRuntimeFacade';export type JourneyViewRuntime=ReturnType<typeof resolveJourneyViewRuntimeFacade>;export type JourneyViewRuntimeScreen=JourneyViewRuntime['screen'];export type JourneyViewAssessmentDimensions=JourneyViewRuntime['assessmentDimensions'];

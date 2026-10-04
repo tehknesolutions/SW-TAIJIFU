@@ -1,0 +1,1 @@
+import type{JourneyViewRuntimePrimary}from'./V1JourneyViewRuntimePrimaryContract';import{resolveJourneyViewRuntimeApiInput}from'./V1JourneyViewRuntimeApiResolver';export const journeyViewRuntime:JourneyViewRuntimePrimary=input=>resolveJourneyViewRuntimeApiInput(input);
