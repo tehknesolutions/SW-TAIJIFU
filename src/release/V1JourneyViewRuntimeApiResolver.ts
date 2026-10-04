@@ -1,0 +1,1 @@
+import type{JourneyViewRuntimeInput}from'./V1JourneyViewRuntimeInputContract';import{resolveJourneyViewRuntimeFacade}from'./V1JourneyViewRuntimeFacade';export function resolveJourneyViewRuntimeApiInput(input:JourneyViewRuntimeInput){return resolveJourneyViewRuntimeFacade(input.state,input.units,input.callbacks);}
