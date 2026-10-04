@@ -1,0 +1,1 @@
+import type{JourneyRuntime}from'./V1JourneyViewRuntimeDefaultContract';export type JourneyRuntimeApiContract={run:JourneyRuntime;adapt:JourneyRuntime['adapt'];resolve:JourneyRuntime['resolve'];};
