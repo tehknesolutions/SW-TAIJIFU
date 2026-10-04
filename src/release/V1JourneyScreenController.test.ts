@@ -1,0 +1,1 @@
+import{describe,it,expect,vi}from'vitest';import{resolveJourneyScreenController}from'./V1JourneyScreenController';describe('R079 Journey screen controller',()=>{it('returns status without action controller',()=>{const result=resolveJourneyScreenController({evidence:[]}as any,[],{onChange:vi.fn(),onTrain:vi.fn()});expect(result.kind).toBe('STATUS');});});
