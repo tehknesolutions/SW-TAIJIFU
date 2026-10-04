@@ -1,0 +1,1 @@
+import type{AppState}from'../domain/types';import{resolveJourneyViewController}from'./V1JourneyViewController';export function resolveJourneyViewRuntime(state:AppState,units:any[],callbacks:{onChange:(state:AppState)=>void;onTrain:()=>void}){return resolveJourneyViewController(state,units,callbacks);}
