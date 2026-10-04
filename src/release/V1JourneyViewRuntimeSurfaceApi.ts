@@ -1,0 +1,1 @@
+import{adaptJourneyViewRuntimeSurfaceInput}from'./V1JourneyViewRuntimeSurfaceAdapter';import{resolveJourneyViewRuntimeSurface}from'./V1JourneyViewRuntimeSurfaceResolver';export const journeyViewRuntimeSurfaceApi={adapt:adaptJourneyViewRuntimeSurfaceInput,resolve:resolveJourneyViewRuntimeSurface}as const;export type JourneyViewRuntimeSurfaceApi=typeof journeyViewRuntimeSurfaceApi;
