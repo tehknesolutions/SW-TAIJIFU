@@ -1,0 +1,1 @@
+export function resolveJourneyRuntimeModel<T extends{kind:string;assessment?:{dimensions:readonly string[]}}>(screen:T){return{screen,assessmentDimensions:screen.kind==='STATUS'?[]:screen.assessment?.dimensions??[]};}
