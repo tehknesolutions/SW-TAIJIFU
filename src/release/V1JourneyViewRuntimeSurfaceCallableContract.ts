@@ -1,0 +1,1 @@
+import type{JourneyViewRuntimeSurfacePrimary}from'./V1JourneyViewRuntimeSurfacePrimaryContract';import type{JourneyViewRuntimeSurfaceApi}from'./V1JourneyViewRuntimeSurfaceApi';export type JourneyViewRuntimeSurfaceCallable=JourneyViewRuntimeSurfacePrimary&JourneyViewRuntimeSurfaceApi;
