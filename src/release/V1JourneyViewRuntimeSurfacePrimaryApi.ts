@@ -1,0 +1,1 @@
+import type{JourneyViewRuntimeSurfacePrimary}from'./V1JourneyViewRuntimeSurfacePrimaryContract';import{resolveJourneyViewRuntimeSurface}from'./V1JourneyViewRuntimeSurfaceResolver';export const journeyViewRuntimeSurface:JourneyViewRuntimeSurfacePrimary=input=>resolveJourneyViewRuntimeSurface(input);
