@@ -1,0 +1,1 @@
+import{resolveJourneyViewRuntimeFacade}from'./V1JourneyViewRuntimeFacade';export const journeyViewRuntimeApi={resolve:resolveJourneyViewRuntimeFacade}as const;export type JourneyViewRuntimeApi=typeof journeyViewRuntimeApi;
